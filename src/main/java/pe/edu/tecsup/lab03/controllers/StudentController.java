@@ -8,7 +8,7 @@ public class StudentController {
 
     // Método integrado del Líder
     public void showMessage() {
-        System.out.println("Controlador unificado en Sprint 1");
+        System.out.println("Controlador unificado en Sprint 2");
     }
 
     // Método del Colaborador
@@ -16,5 +16,10 @@ public class StudentController {
         StudentEntity student = new StudentEntity(id, name, email);
         service.registerStudent(student);
         System.out.println("Estudiante registrado exitosamente: " + name);
+    }
+
+    // Método para eliminar del Líder
+    public void delete(Long id) {
+        System.out.println("Eliminando estudiante con ID: " + id + " (por Responsable)");
     }
 }
