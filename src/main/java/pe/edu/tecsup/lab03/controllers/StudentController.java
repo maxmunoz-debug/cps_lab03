@@ -6,15 +6,20 @@ import pe.edu.tecsup.lab03.services.StudentService;
 public class StudentController {
     private StudentService service = new StudentService();
 
-    // Método integrado del Líder
     public void showMessage() {
-        System.out.println("Controlador unificado en Sprint 1");
+        System.out.println("Controlador actualizado por Colaborador en Sprint 2");
     }
-
-    // Método del Colaborador
     public void create(Long id, String name, String email) {
         StudentEntity student = new StudentEntity(id, name, email);
         service.registerStudent(student);
-        System.out.println("Estudiante registrado exitosamente: " + name);
+        System.out.println("Estudiante registrado: " + name);
+    }
+    public void findAndDisplay(Long id) {
+        StudentEntity student = service.getStudentById(id);
+        if (student != null) {
+            System.out.println("Estudiante encontrado: " + student.getName() + " - Estado: " + student.getStatus());
+        } else {
+            System.out.println("Estudiante no encontrado con ID: " + id);
+        }
     }
 }
