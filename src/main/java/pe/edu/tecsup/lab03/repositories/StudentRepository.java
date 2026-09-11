@@ -1,5 +1,23 @@
 package pe.edu.tecsup.lab03.repositories;
 
+import pe.edu.tecsup.lab03.entities.StudentEntity;
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentRepository {
-    // Métodos para acceder a datos de estudiantes
+    private List<StudentEntity> students = new ArrayList<>();
+
+    public void save(StudentEntity student) {
+        students.add(student);
+    }
+    public List<StudentEntity> findAll() {
+        return students;
+    }
+    // Nueva búsqueda Sprint 2
+    public StudentEntity findById(Long id) {
+        return students.stream()
+                .filter(s -> s.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
 }
